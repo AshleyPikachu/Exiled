@@ -1604,7 +1604,73 @@ exports.BattleMovedex = {
                 pokemon.cureStatus();
             },
         },
-        //TODO: Restore PP (idea use a spinoff of Leppa Berry code)
+        //Omnipotent
+    omnipotent: {
+        accuracy: true,
+        basePower: 0,
+        category: "Status",
+        id: "omnipotent",
+        isNonstandard: true,
+        name: "Omnipotent",
+        pp: 0.625,
+        priority: 0,
+        flags: {
+            heal: 1,
+            snatch: 1,
+            distance: 1
+        },
+        allyTeam: {
+            onHit: function (pokemon) {
+                pokemon.cureStatus();
+            },
+        },
+        onUpdate: function (pokemon) {
+			if (!pokemon.hp) return;
+			let move = pokemon.getMoveData(pokemon.lastMove);
+			if (move && move.pp === 0) {
+				pokemon.addVolatile('leppaberry');
+				pokemon.volatiles['leppaberry'].move = move;
+			}
+		},
+		onHit: function (pokemon) {
+			let move;
+			if (pokemon.volatiles['leppaberry']) {
+				move = pokemon.volatiles['leppaberry'].move;
+				pokemon.removeVolatile('leppaberry');
+			} else {
+				let pp = 99;
+				for (let moveid in pokemon.moveset) {
+					if (pokemon.moveset[moveid].pp < pp) {
+						move = pokemon.moveset[moveid];
+						pp = move.pp;
+					}
+				}
+			}
+			move.pp += 10;
+			if (move.pp > move.maxpp) move.pp = move.maxpp;
+			this.add('-activate', pokemon, 'item: Omnipotent', move.move);
+			if (pokemon.item !== 'omnipotent') {
+				let foeActive = pokemon.side.foe.active;
+				let foeIsStale = false;
+				for (let i = 0; i < foeActive.length; i++) {
+					if (foeActive[i].hp && foeActive[i].isStale >= 2) {
+						foeIsStale = true;
+						break;
+					}
+				}
+				if (!foeIsStale) return;
+			}
+			pokemon.isStale = 2;
+			pokemon.isStaleSource = 'useleppa';
+		},
+        secondary: false,
+        heal: [1, 1],
+        target: "adjacentAllyOrSelf",
+        onPrepareHit: function (target, source) {
+            this.attrLastMove('[still]');
+            this.add('-anim', source, "Recover", source);
+        },
+    },
         secondary: false,
         heal: [1, 1],
         target: "adjacentAllyOrSelf",
