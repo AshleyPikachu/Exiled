@@ -1414,7 +1414,7 @@ exports.Formats = [
 		onBegin: function () {
 			// This seasonal gets a bit from Super Smash Bros., that's where the initial message comes from.
 			this.add('message', "GET READY FOR THE NEXT BATTLE!");
-			this.add('message', "For more information on a user's staffmon, use /ssb (authed user's name)!");
+			//this.add('message', "For more information on a user's staffmon, use /ssb (authed user's name)!");
 			// This variable saves the status of a spammy conversation to be played, so it's only played once.
 			this.convoPlayed = false;
 		},
@@ -1437,6 +1437,9 @@ exports.Formats = [
 			}
 			if (name === 'hoeenhero') {
 				this.add('c| HoeenHero|Do I have to? I\'m in the middle of programming.');
+			}
+			if (name === 'stellation') {
+				this.add('c|+stellation|**Showtime!**');
 			}
 
 			// Add here special typings, done for flavor mainly. (and stat boosts)
@@ -1504,7 +1507,10 @@ exports.Formats = [
 			}
 			if (name === 'hoeenhero') {
 				this.add('c| HoeenHero|Hey! Thats more hax than I get to use >:(');
-			}	
+			}
+			if (name === 'stellation') {
+				this.add('c|+stellation|Exit... Stage Left!');
+			}
 		},
 	}, {
 		name: "[Gen 7] Metronome Battles",
