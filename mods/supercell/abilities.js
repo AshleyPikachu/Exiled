@@ -1130,4 +1130,65 @@ exports.BattleAbilities = {
 		},
 		onCriticalHit: false,
     },
+	"masterdetonator": {
+		id: "masterdetonator",
+		name: "Master Detonator",
+		onModifyMove: function (move) {
+			move.stab = 2;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA: function (spa) {
+			return this.chainModify(2);
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual: function (pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({
+					spe: 1
+				});
+			}
+		},
+	},
+	"championbowler": {
+		id: "championbowler",
+		name: "Champion Bowler",
+		onModifyMove: function (move) {
+			move.stab = 2;
+			move.ignoreAbility = true;
+		},
+		onModifySpAPriority: 5,
+		onModifySpA: function (spa) {
+			return this.chainModify(2);
+		},
+		onAnyFaint: function () {
+			this.boost({
+				spa: 1
+			}, this.effectData.target);
+		},
+		onSwitchOut: function (pokemon) {
+			pokemon.heal(pokemon.maxhp / 3);
+		},
+		onAnyModifyBoost: function (boosts, target) {
+			let source = this.effectData.target;
+			if (source === target) return;
+			if (source === this.activePokemon && target === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (target === this.activePokemon && source === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		onAfterDamage: function (damage, target, source, effect) {
+			if (effect && effect.effectType === 'Move' && effect.id !== 'confused') {
+				this.boost({
+					def: 1
+				});
+			}
+		},
+	},
 };
