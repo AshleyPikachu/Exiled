@@ -1710,7 +1710,7 @@ exports.Formats = [
 			this.add('c|~Insist|This gamemode was made solely for the enjoyment of the players of the Pokemon Showdown community, and we do not claim to own or be responsible to any rights/copyrights related to Digimon.');
 			this.add('c|~Insist|Now that that\'s out of the way, go ahead and meet our developers:');
 			this.add('c|%Ashley the Pikachu|Haha, hey! I am the Head Researcher that made this gamemode possible!');
-			this.add('c|+Stellation|Hey, I was in charge of assisting the other developers, I did my own fair share of coding when needed and made this thing open source so you all can download, edit, and play this meta! :3');
+			this.add('c|+Stellation|Hey, I was in charge of assisting the other developers. I did my own fair share of coding when needed and made this thing open source so you all can download, edit, and play this meta! :3');
 			this.add('c| AlfaStorm|Hey, you see all those items, and move animations, haha that was my job ^~^');
 			this.add('c|~HoeenHero|Hey, I helped creating mechanics for this gamemode to work as it does :D');
 			this.add('c|~Volco|Hey, I helped create finishers for the Digimon to use :D');
