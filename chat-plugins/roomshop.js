@@ -5,7 +5,7 @@
  *
  */
 
-
+/*
 'use strict';
 
 const fs = require('fs');
@@ -151,6 +151,7 @@ exports.commands = {
  * @param {Array} shop
  * @return {String} display
  */
+/*
 function getShopDisplay(shop) {
     let display = "<center><u><b>' + room.title + '\'s Shop</b></u></center><br><div' + (!this.isOfficial ? ' class=infobox-limited' : '') + '><table style='background: Black; border-color: Red; border-radius: 8px' border='1' cellspacing='0' cellpadding='5' width='100%'>" +
                     "<tbody><tr><th><font color=White face=courier>Command</font></th><th><font color=White face=courier>Description</font></th><th><font color=White face=courier>Cost</font></th></tr>";
@@ -210,4 +211,4 @@ function getShopDisplay(shop) {
 					'- /roomshop - Displays the roomshop for the room.',
 					'- /roomshop log [lines/target] - Displays log for the roomshop of the room. Requires &, #'],
 					
-};
+}; */
