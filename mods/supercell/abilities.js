@@ -968,7 +968,6 @@ exports.BattleAbilities = {
                 return this.chainModify(1.5);
             }
         },
-        isUnbreakable: true,
         onCriticalHit: false,
         onTryHit: function (pokemon, target, move) {
             if (move.ohko) {
@@ -1129,7 +1128,6 @@ exports.BattleAbilities = {
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
-		isUnbreakable: true,
 		onCriticalHit: false,
     },
 };
