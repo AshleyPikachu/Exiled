@@ -1703,8 +1703,21 @@ exports.Formats = [
 		section: "Exiled's Custom Gamemodes",
 		mod: "digimon",
 		team: "randomDigimon",
-		gameType: "triples",
+		gameType: "doubles",
 		ruleset: ['Cancel Mod', 'HP Percentage Mod'],
+		onBegin: function () {
+			this.add('c|~Insist|Hey players, I\'m the Head Developer of this gamemode, and for some reason I\'m here to give you a **DISCLAIMER**, so be ready kek');
+			this.add('c|~Insist|This gamemode was made solely for the enjoyment of the players of the Pokemon Showdown community, and we do not claim to own or be responsible to any rights/copyrights related to Digimon.');
+			this.add('c|~Insist|Now that that\'s out of the way, go ahead and meet our developers:');
+			this.add('c|%Ashley the Pikachu|Haha, hey! I am the Head Researcher that made this gamemode possible!');
+			this.add('c|+Stellation|Hey, I was in charge of assisting the other developers, and developed a few things and made it open source for you all to use ^~^');
+			this.add('c| AlfaStorm|Hey, you see all those items, and move animations, haha that was my job ^~^');
+			this.add('c|~HoeenHero|Hey, I helped creating mechanics for this gamemode to work as it does :D');
+			this.add('c|~Volco|Hey, I helped create finishers for the Digimon to use :D');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLuiq/362ce3e54b.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLuj6/a8d57f579b.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLujT/a65aecfbd5.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+		},
 	}, {
 
 		/*	name: "[Gen 7] Wrath of the Legends (BETA)",
